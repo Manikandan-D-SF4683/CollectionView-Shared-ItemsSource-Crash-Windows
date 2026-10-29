@@ -1,0 +1,8 @@
+﻿<ContentPage x:Class="MauiApp1.MainPage">
+
+    <Grid RowDefinitions="Auto,Auto,*,*" Padding="20" RowSpacing="10">        <HorizontalStackLayout Spacing="10">            <Button Text="Add Item" Clicked="OnAddItemClicked" />        </HorizontalStackLayout>
+        <Label Grid.Row="1"               Text="Steps: Tap 'Add Item' -> crash." />
+        <!-- Collection 1: same ItemsSource as Collection 2 -->        <CollectionView x:Name="FirstCollection"                        Grid.Row="2"                        ItemsSource="{Binding Items}">            <CollectionView.ItemTemplate>                <DataTemplate>                    <Label Text="{Binding}" BackgroundColor="LightBlue" Margin="2" />                </DataTemplate>            </CollectionView.ItemTemplate>        </CollectionView>
+        <!-- Collection 2: same ItemsSource binding -->        <CollectionView x:Name="SecondCollection"                        Grid.Row="3" IsVisible="False"                        ItemsSource="{Binding Items}">            <CollectionView.ItemTemplate>                <DataTemplate>                    <Label Text="{Binding}" BackgroundColor="LightGreen" Margin="2" />                </DataTemplate>            </CollectionView.ItemTemplate>        </CollectionView>    </Grid>
+
+</ContentPage>
